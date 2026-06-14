@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prodesk IT</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      color: #444;
+    }
+
+    .nav-links a:hover {
+      color: #0057ff;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+    }
+
+    .hero {
+      background-color: #0057ff;
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      max-width: 680px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .hero a {
+      display: inline-block;
+      background: #fff;
+      color: #0057ff;
+      font-weight: bold;
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .hero a:hover {
+      background: #e8effe;
+    }
+
+    .services {
+      padding: 60px 24px;
+      background: #f9f9f9;
+    }
+
+    .services h2 {
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 36px;
+      color: #222;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 28px 22px;
+      text-align: center;
+    }
+
+    .card-icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #222;
+      color: #aaa;
+      padding: 28px 24px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-inner img {
+      height: 36px;
+      filter: brightness(0) invert(1);
+      opacity: 0.7;
+    }
+
+    .footer-inner p {
+      font-size: 13px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 14px;
+    }
+
+    .socials a {
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    .socials a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 640px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+        padding: 12px 24px 16px;
+        gap: 10px;
+        z-index: 999;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 { font-size: 26px; }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="#" class="logo">
+      <img src="https://prodesk.in/assets/images/img_11b1956777.png" alt="Prodesk IT Logo" />
+    </a>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <h1>We Build Digital Experiences</h1>
+    <p>
+      Culture is not what you write on the walls; it is how you act when nobody is watching.
+      At Prodesk IT, we don't have "rules" — we have standards. These are the non-negotiable
+      principles that drive every line of code we write and every decision we make.
+    </p>
+    <a href="#services">Get Started</a>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>SEO</h3>
+        <p>We help your website rank higher on search engines and get found by the right people.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">💻</div>
+        <h3>Web Development</h3>
+        <p>Clean, fast, and responsive websites built from scratch using modern web technologies.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Digital Marketing</h3>
+        <p>Data-driven campaigns across social media, email, and paid ads to grow your business.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-inner">
+      <img src="https://prodesk.in/assets/images/img_11b1956777.png" alt="Prodesk IT" />
+      <p>© 2026 Prodesk IT. All rights reserved.</p>
+      <div class="socials">
+        <a href="#">LinkedIn</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+  </script>
+
+</body>
+</html>
