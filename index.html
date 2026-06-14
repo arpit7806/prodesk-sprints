@@ -14,6 +14,8 @@
     body {
       font-family: Arial, sans-serif;
       color: #333;
+      background: #fff;
+      transition: background 0.3s, color 0.3s;
     }
 
     a {
@@ -21,18 +23,88 @@
       color: inherit;
     }
 
-    
+    /* ── DARK MODE ── */
+    body.dark-theme {
+      background: #121212;
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .navbar {
+      background: rgba(18, 18, 18, 0.75);
+      border-bottom: 1px solid #333;
+    }
+
+    body.dark-theme .nav-links a {
+      color: #ccc;
+    }
+
+    body.dark-theme .nav-links a:hover {
+      color: #4d8bff;
+    }
+
+    body.dark-theme .nav-links {
+      background: #1a1a1a;
+      border-bottom: 1px solid #333;
+    }
+
+    body.dark-theme .hamburger span {
+      background: #e0e0e0;
+    }
+
+    body.dark-theme .services {
+      background: #1a1a1a;
+    }
+
+    body.dark-theme .services h2 {
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .card {
+      background: #242424;
+      border-color: #333;
+    }
+
+    body.dark-theme .card h3 {
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .card p {
+      color: #999;
+    }
+
+    body.dark-theme .toggle-btn {
+      background: #333;
+      color: #e0e0e0;
+      border-color: #555;
+    }
+
+    /* ── NAVBAR ── */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 12px 24px;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.75);
       border-bottom: 1px solid #ddd;
+
+      /* Sticky */
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      /* Glassmorphism */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
     .logo img {
       height: 45px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
     .nav-links {
@@ -50,6 +122,23 @@
       color: #0057ff;
     }
 
+    /* Dark mode toggle button */
+    .toggle-btn {
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      color: #333;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .toggle-btn:hover {
+      background: #e0e0e0;
+    }
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -64,8 +153,10 @@
       width: 24px;
       height: 2px;
       background: #333;
+      transition: transform 0.25s, opacity 0.25s;
     }
 
+    /* ── HERO ── */
     .hero {
       background-color: #0057ff;
       color: #fff;
@@ -86,6 +177,7 @@
       color: rgba(255,255,255,0.88);
     }
 
+    /* CTA button with micro-interaction */
     .hero a {
       display: inline-block;
       background: #fff;
@@ -94,15 +186,20 @@
       padding: 12px 28px;
       border-radius: 6px;
       font-size: 15px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
 
     .hero a:hover {
       background: #e8effe;
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
 
+    /* ── SERVICES ── */
     .services {
       padding: 60px 24px;
       background: #f9f9f9;
+      transition: background 0.3s;
     }
 
     .services h2 {
@@ -110,6 +207,7 @@
       font-size: 26px;
       margin-bottom: 36px;
       color: #222;
+      transition: color 0.3s;
     }
 
     .services-grid {
@@ -120,12 +218,19 @@
       margin: 0 auto;
     }
 
+    /* Card with z-axis lift on hover */
     .card {
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 8px;
       padding: 28px 22px;
       text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s, background 0.3s, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
     }
 
     .card-icon {
@@ -137,14 +242,17 @@
       font-size: 17px;
       margin-bottom: 10px;
       color: #222;
+      transition: color 0.3s;
     }
 
     .card p {
       font-size: 14px;
       color: #666;
       line-height: 1.6;
+      transition: color 0.3s;
     }
 
+    /* ── FOOTER ── */
     footer {
       background: #222;
       color: #aaa;
@@ -179,12 +287,14 @@
     .socials a {
       color: #aaa;
       font-size: 13px;
+      transition: color 0.2s;
     }
 
     .socials a:hover {
       color: #fff;
     }
 
+    /* ── MOBILE ── */
     @media (max-width: 640px) {
       .hamburger { display: flex; }
 
@@ -219,23 +329,30 @@
 </head>
 <body>
 
+  <!-- NAVBAR -->
   <nav class="navbar">
     <a href="#" class="logo">
       <img src="https://prodesk.in/assets/images/img_11b1956777.png" alt="Prodesk IT Logo" />
     </a>
 
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav-right">
+      <!-- Dark mode toggle -->
+      <button class="toggle-btn" id="theme-toggle">🌙 Dark Mode</button>
 
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
+  <!-- HERO -->
   <section class="hero" id="home">
     <h1>We Build Digital Experiences</h1>
     <p>
@@ -246,6 +363,7 @@
     <a href="#services">Get Started</a>
   </section>
 
+  <!-- SERVICES -->
   <section class="services" id="services">
     <h2>Our Services</h2>
     <div class="services-grid">
@@ -271,6 +389,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer id="contact">
     <div class="footer-inner">
       <img src="https://prodesk.in/assets/images/img_11b1956777.png" alt="Prodesk IT" />
@@ -285,6 +404,7 @@
   </footer>
 
   <script>
+    // Hamburger menu
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
 
@@ -294,6 +414,19 @@
 
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Dark mode toggle
+    const themeToggle = document.getElementById('theme-toggle');
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+
+      if (document.body.classList.contains('dark-theme')) {
+        themeToggle.textContent = '☀️ Light Mode';
+      } else {
+        themeToggle.textContent = '🌙 Dark Mode';
+      }
     });
   </script>
 
