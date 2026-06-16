@@ -68,4 +68,12 @@ This file documents the AI assistance utilized during the development of the Pro
 
 ---
 
+## Prompt 8
+**Tool:** Claude (Anthropic)
+**Purpose:** Adding grid design
+**Prompt:**
+> "Help me write code to add some live grid behind the text in hero section."
+
+---
+
 *Note: AI was used to assist with specific implementation blocks and documentation. Core understanding, structure decisions, and final review were done manually.*
