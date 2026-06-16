@@ -4,11 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prodesk IT</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 1px;
     }
 
     body {
@@ -98,7 +104,8 @@
     }
 
     .logo img {
-      height: 45px;
+      height: 85px;
+      object-fit: contain;
     }
 
     .nav-right {
@@ -119,7 +126,7 @@
     }
 
     .nav-links a:hover {
-      color: #0057ff;
+      color: #F5C842;
     }
 
     /* Dark mode toggle button */
@@ -158,15 +165,36 @@
 
     /* ── HERO ── */
     .hero {
-      background-color: #0057ff;
-      color: #fff;
+      background-color: #F5C842;
+      color: #1a1a1a;
       text-align: center;
       padding: 80px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -100%;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.08) 1px, transparent 1px);
+      background-size: 48px 48px;
+      animation: moveGrid 6s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes moveGrid {
+      0%   { transform: translate(0, 0); }
+      100% { transform: translate(48px, 48px); }
     }
 
     .hero h1 {
       font-size: 36px;
       margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero p {
@@ -174,25 +202,29 @@
       max-width: 680px;
       margin: 0 auto 28px;
       line-height: 1.7;
-      color: rgba(255,255,255,0.88);
+      color: rgba(0,0,0,0.65);
+      position: relative;
+      z-index: 1;
     }
 
     /* CTA button with micro-interaction */
     .hero a {
       display: inline-block;
-      background: #fff;
-      color: #0057ff;
+      background: #1a1a1a;
+      color: #F5C842;
       font-weight: bold;
       padding: 12px 28px;
       border-radius: 6px;
       font-size: 15px;
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      z-index: 1;
     }
 
     .hero a:hover {
-      background: #e8effe;
+      background: #333;
       transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
     }
 
     /* ── SERVICES ── */
